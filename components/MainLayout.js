@@ -25,8 +25,8 @@ export default function MainLayout({children,title='Task #1'}) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <Link href="/settings"><a className="nav-link">settings <span className="sr-only">(current)</span></a></Link>
+                        <li className="nav-item">
+                            <Link href="/settings"><a className="nav-link">settings</a></Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/login"><a className="nav-link">login</a></Link>

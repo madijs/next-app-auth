@@ -9,19 +9,19 @@
     {
       "id": 2,
       "image": "https://expressjs.com/images/express-facebook-share.png",
-      "title": "Пост про здоровье",
+      "title": "Express js",
       "body": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
     },
     {
       "id": 3,
       "image": "https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png",
-      "title": "Пост про отдых",
+      "title": "React js",
       "body": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes."
     },
     {
       "id": 4,
       "image": "https://habrastorage.org/webt/xc/4n/a1/xc4na1sca8xlufsjkj3yyo1z9m8.jpeg",
-      "title": "Пост про отдых",
+      "title": "Node js",
       "body": "As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following \"hello world\" example, many connections can be handled concurrently. Upon each connection, the callback is fired, but if there is no work to be done, Node.js will sleep.\n\n"
     }
   ]

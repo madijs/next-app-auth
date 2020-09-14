@@ -23,8 +23,20 @@ export default function Index() {
     return <>
         {isAuth && (
             <MainLayout>
-                <div>settings</div>
+                <div className={'settings'}>Settings Page</div>
             </MainLayout>
         )}
+        <style jsx>{`
+        .settings{
+                margin: 0 auto;
+                text-align: center;
+                align-items: center;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                font-size: 4rem;
+            }
+            `}
+        </style>
         </>
 }

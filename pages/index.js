@@ -38,7 +38,7 @@ export default function Home({ posts:serverPosts }) {
           <MainLayout>
               <div className="posts-list">
                   {posts && posts.map(el=>(
-                      <div className={'post-card'}>
+                      <div key={el.id} className={'post-card'}>
                           <div className={'post-img-div'}><img className={'post-img'} src={el.image}/></div>
                           <div className={'post-title-div'}>{el.title}</div>
                           <div className={'post-body-div'}>{el.body}</div>
@@ -55,7 +55,7 @@ Home.getInitialProps = async ({store,req})=>{
     if(!req){
         return {posts:null}
     }
-    await store.dispatch(fetchposts())
+    await store.dispatch(fetchposts());
     return{}
 }
 

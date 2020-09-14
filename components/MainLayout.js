@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from 'next/head';
-import {useEffect,useState} from 'react'
+import {useEffect} from 'react'
 import {useDispatch} from "react-redux";
 import {loginAction} from "../redux/actions/loginAction";
 import {logoutAction} from "../redux/actions/logoutAction";
@@ -9,11 +9,9 @@ import {useRouter} from "next/router";
 export default function MainLayout({children,title='Task #1'}) {
     const router = useRouter();
     const dispatch = useDispatch();
-    const [isAuth,setAuth] = useState(false);
 
     useEffect(()=>{
         if(localStorage.getItem('isAuth')){
-            setAuth(true)
             dispatch(loginAction('Admin','12345'))
         }
     },[]);
@@ -39,7 +37,10 @@ export default function MainLayout({children,title='Task #1'}) {
                         <div>Dasboards</div>
                     </Link>
                     <Link href="/settings">
-                        <div>settings</div>
+                        <div>Settings</div>
+                    </Link>
+                    <Link href="/employee">
+                        <div>Employee</div>
                     </Link>
                     <div onClick={logoutClicked}>Logout</div>
 
@@ -52,7 +53,6 @@ export default function MainLayout({children,title='Task #1'}) {
                 .nav-container{
                    display:flex;
                    justify-content:space-around;
-                   width:30%;
                 }
                 .nav-container div:hover{
                     cursor:pointer;

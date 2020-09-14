@@ -13,6 +13,7 @@ export const createNewEmployee = (name,salary,age) => async dispatch => {
             payload: res
         })
     }).catch((error) => {
+        alert("Походу апишка гонит "+error.message)
         dispatch({
             type: types.CREATE_EMPLOYEE_ERROR,
             payload: {

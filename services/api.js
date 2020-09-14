@@ -32,7 +32,7 @@ export const createEmployee = async (name,salary,age) => {
             id:res.data.data.id,
             employee_name:res.data.data.name,
             employee_age:res.data.data.age,
-            employee_salary: res.data.salary
+            employee_salary: res.data.data.salary
         }
     })
 };

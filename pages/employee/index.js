@@ -93,11 +93,13 @@ export default function Employees({employees:serverResponse}) {
     </>
 }
 
-// Employees.getInitialProps = async ({store,req})=>{
-//     console.log('wwqweqeqweqe')
-//     if(!req){
-//         return {employees:null}
-//     }
-//     await store.dispatch(fetchEmployees())
-//     return{}
-// }
+Employees.getInitialProps = async ({store,req})=>{
+    if(!store.employees) {
+        console.log('wwqweqeqweqe')
+        if(!req){
+            return {employees:null}
+        }
+        await store.dispatch(fetchEmployees())
+        return{}
+    }
+}

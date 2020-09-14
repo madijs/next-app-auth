@@ -2,9 +2,20 @@ import * as types from '../types'
 import {getPosts} from "../../services/api";
 
 export const fetchposts = () => async dispatch => {
-    const res = await getPosts();
     dispatch({
-        type:types.GET_POSTS,
-        payload:res
+        type:types.FETCH_POSTS,
+    });
+    await getPosts().then(res => {
+        dispatch({
+            type: types.FETCH_POSTS_SUCCESS,
+            payload: res
+        })
+    }).catch((error) => {
+        dispatch({
+            type: types.FETCH_POSTS_ERROR,
+            payload: {
+                error
+            }
+        })
     })
 };

@@ -1,7 +1,30 @@
 import Link from "next/link";
-import Head from 'next/head'
+import Head from 'next/head';
+import {useEffect,useState} from 'react'
+import {useDispatch} from "react-redux";
+import {loginAction} from "../redux/actions/loginAction";
+import {logoutAction} from "../redux/actions/logoutAction";
+import {useRouter} from "next/router";
 
 export default function MainLayout({children,title='Task #1'}) {
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const [isAuth,setAuth] = useState(false);
+
+    useEffect(()=>{
+        if(localStorage.getItem('isAuth')){
+            setAuth(true)
+            dispatch(loginAction('Admin','12345'))
+        }
+    },[]);
+
+
+    const logoutClicked = async () =>{
+        await dispatch(logoutAction()).then(()=>{
+            router.push('/login')
+        })
+    };
+
     return(
         <>
             <Head>
@@ -10,36 +33,33 @@ export default function MainLayout({children,title='Task #1'}) {
                 <meta name="description" content="this is youtube tutorial for next"/>
                 <meta charSet="utf-8"/>
             </Head>
-            <nav style={{backgroundColor:'#fff'}} className="navbar navbar-expand-lg">
-                <Link href="/">
-                    <a className="navbar-brand">Dashboard</a>
-                </Link>
-                <button className="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link href="/settings"><a className="nav-link">settings</a></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link href="/login"><a className="nav-link">login</a></Link>
-                        </li>
-                    </ul>
+            <nav>
+                <div className={'nav-container'}>
+                    <Link href="/">
+                        <div>Dasboards</div>
+                    </Link>
+                    <Link href="/settings">
+                        <div>settings</div>
+                    </Link>
+                    <div onClick={logoutClicked}>Logout</div>
+
                 </div>
             </nav>
             <main style={{height:'100vh'}}>
                 {children}
             </main>
             <style jsx>{`
-                nav a{
-                    color:#17002D
+                .nav-container{
+                   display:flex;
+                   justify-content:space-around;
+                   width:30%;
+                }
+                .nav-container div:hover{
+                    cursor:pointer;
+                    color: blue;
+                }
+                nav div{
+                    color:#fff
                 }
             `}</style>
         </>

@@ -10,9 +10,11 @@
     "mock": "json-server -w db.json -p 4200 -d 350"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "dotenv": "^8.2.0",
     "next": "9.5.3",
     "next-redux-wrapper": "^6.0.2",
+    "node-sass": "^4.14.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "redux": "^4.0.5",
